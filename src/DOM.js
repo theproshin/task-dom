@@ -57,15 +57,11 @@ export function replaceNodes() {
     let tree = addChild(1);
     tree.childNodes.forEach((element) => {
         if (element.className == 'item_2') {
-            let children = element.childNodes;
             let section = document.createElement('SECTION');
             section.classList.add('item_2');
-            children.forEach((child) => {
-                section.appendChild(child);
-            });
+            section.innerHTML = element.innerHTML;
             element.replaceWith(section);
         }
-        console.log(element.outerHTML);
     });
     return tree;
 }
